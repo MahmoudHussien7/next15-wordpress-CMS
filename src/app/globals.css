@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.my-breadcrumb {
+  padding: 1.5rem;
+}

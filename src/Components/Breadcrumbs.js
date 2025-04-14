@@ -7,7 +7,7 @@ export default function Breadcrumbs() {
   const pathSegments = pathname.split("/").filter((segment) => segment);
 
   return (
-    <nav className="breadcrumbs text-sm">
+    <nav className="breadcrumbs text-sm my-breadcrumb">
       <ul className="flex gap-2 items-center">
         {/* Home Link */}
         <li>

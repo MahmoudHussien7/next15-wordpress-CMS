@@ -5,6 +5,7 @@ import client from "@/lib/apollo-client";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Breadcrumbs from "@/Components/Breadcrumbs";
+import Navbar from "@/components/Navbar";
 
 export default function PostPage() {
   const params = useParams();
@@ -39,24 +40,30 @@ export default function PostPage() {
   if (!post) return <h1>Loading...</h1>;
 
   return (
-    <div className="container">
+    <>
+      <Navbar />
       <Breadcrumbs />
-      <h1>{post.title}</h1>
+      <div className="container px-6 py-6 border-2 rounded-md m-6">
+        <h1 className="text-7xl font-mono font-extrabold px-6 py-6 ">
+          {post.title}
+        </h1>
 
-      {post.featuredImage && (
-        <Image
-          src={post.featuredImage.node.sourceUrl}
-          alt={post.title}
-          width={800}
-          height={450}
-          style={{ borderRadius: "10px", marginBottom: "20px" }}
+        {post.featuredImage && (
+          <Image
+            src={post.featuredImage.node.sourceUrl}
+            alt={post.title}
+            width={800}
+            height={450}
+            style={{ borderRadius: "10px", marginBottom: "20px" }}
+          />
+        )}
+
+        <div
+          dangerouslySetInnerHTML={{ __html: post.content }}
+          style={{ color: "#fffff", lineHeight: "1.6" }}
+          className="px-6 py-6"
         />
-      )}
-
-      <div
-        dangerouslySetInnerHTML={{ __html: post.content }}
-        style={{ color: "#333", lineHeight: "1.6" }}
-      />
-    </div>
+      </div>
+    </>
   );
 }
