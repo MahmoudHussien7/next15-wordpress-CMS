@@ -5,7 +5,7 @@ import client from "@/lib/apollo-client";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Breadcrumbs from "@/Components/Breadcrumbs";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/Components/Navbar";
 
 export default function PostPage() {
   const params = useParams();
